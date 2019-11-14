@@ -6,7 +6,7 @@ In this module we are walking the reader through how to use the Star Wars Open A
 
 ## SWAPI Basics
 
-The SWAPI is a database with all different kinds of resources from the Star Wars universe.
+The SWAPI API is a collection of data with all different kinds of resources from the 7 official live-action movies of the Star Wars universe. It includes information about each movie, many of the prominent and background characters, and a large portion of the planets, starships, and species seen throughout the 7 Episodes.
 There are 6 main resources we can tap into:
 
 - People: 87
@@ -19,13 +19,13 @@ There are 6 main resources we can tap into:
 Each of these resources has various attributes we can access as well as different ways we can access them. The `SWAPI` is completely open API so there is no need for an API key, however, it is limited to 10,000 API requests per day, per IP.
 
 To make a request all we need is the base URL:
-`http://swapi.co/api/`
+`https://swapi.co/api/`
 
 From there we can choose which resource we want to tap into.
 
 ## Getting Info From The Call
 
-If we make a simple call to the SWAPI we can use the JSON response to get information from that call. We can also specify a format (API/JSON/WOOKIEE) for the GET request. 
+If we make a simple call to the SWAPI API, it returns JSON-formatted data. We can also specify a format (API/JSON/WOOKIEE) for the GET request. 
 Lets use the `Films` resource as an example.
 If we make a simple call to:
 `https://swapi.co/api/films/` , we will see something like this :
@@ -577,82 +577,66 @@ If we make a simple call to:
          }
        ]
     }
-    
    
-A `People` resource is an individual person or character within the Star Wars universe.
+From the above output, we can see that the API returns all the data related to each film.
+   
+Similarly, lets take a look into another example - A `People` resource, which is an individual person or character within the Star Wars universe.
 
-#### Endpoints
+#### Endpoints to access 
 
 * /people/ -- get all the people resources
 * /people/:id/ -- get a specific people resource
 * /people/schema/ -- view the JSON schema for this resource
 
 **Example request** :
-`https://swapi.co/api/people/1/` -or-
-`https://swapi.co/api/people/?search=luke`
+If we want to search for a particular character say `Luke Skywalker`, we can either search through `unique id` or `name`.
+If we make a simple call to: `https://swapi.co/api/people/1/` -or- `https://swapi.co/api/people/?search=luke` , we will see something like this :
 
-# swapi-node
-A *Node.js* helper library for `https://swapi.co/` - the Star Wars API
 
-## Installation
-
-    npm install swapi-node
-    
-## Usage
-
-There are some values that return a link. To make it easier to deal with these, there are corresponding getters for those properties.
-
-    const swapi = require("swapi-node");
-       swapi.getPerson(1).then(result => {
-         console.log(result);
-       });
-
-For example, when a call to `getPerson(1)`is made, it might return this json:
-    
-    {   name: 'Luke Skywalker',
-        height: '172',
-        mass: '77',
-        hair_color: 'blond',
-        skin_color: 'fair',
-        eye_color: 'blue',
-        birth_year: '19BBY',
-        gender: 'male',
-        homeworld: 'https://swapi.co/api/planets/1/',
-        films: 
-         [ 'https://swapi.co/api/films/2/',
-           'https://swapi.co/api/films/6/',
-           'https://swapi.co/api/films/3/',
-           'https://swapi.co/api/films/1/',
-           'https://swapi.co/api/films/7/' ],
-        species: [ 'https://swapi.co/api/species/1/' ],
-        vehicles: 
-         [ 'https://swapi.co/api/vehicles/14/',
-           'https://swapi.co/api/vehicles/30/' ],
-        starships: 
-         [ 'https://swapi.co/api/starships/12/',
-           'https://swapi.co/api/starships/22/' ],
-              created: '2014-12-09T13:50:51.644000Z',
-              edited: '2014-12-20T21:17:56.891000Z',
-              url: 'https://swapi.co/api/people/1/',
-              nextPage: [Function],
-              previousPage: [Function],
-              getName: [Function],
-              getHeight: [Function],
-              getMass: [Function],
-              getHair_color: [Function],
-              getSkin_color: [Function],
-              getEye_color: [Function],
-              getBirth_year: [Function],
-              getGender: [Function],
-              getHomeworld: [Function],
-              getFilms: [Function],
-              getSpecies: [Function],
-              getVehicles: [Function],
-              getStarships: [Function],
-              getCreated: [Function],
-              getEdited: [Function],
-              getUrl: [Function] 
-    }
+      {   name: 'Luke Skywalker',
+              height: '172',
+              mass: '77',
+              hair_color: 'blond',
+              skin_color: 'fair',
+              eye_color: 'blue',
+              birth_year: '19BBY',
+              gender: 'male',
+              homeworld: 'https://swapi.co/api/planets/1/',
+              films: 
+               [ 'https://swapi.co/api/films/2/',
+                 'https://swapi.co/api/films/6/',
+                 'https://swapi.co/api/films/3/',
+                 'https://swapi.co/api/films/1/',
+                 'https://swapi.co/api/films/7/' ],
+              species: [ 'https://swapi.co/api/species/1/' ],
+              vehicles: 
+               [ 'https://swapi.co/api/vehicles/14/',
+                 'https://swapi.co/api/vehicles/30/' ],
+              starships: 
+               [ 'https://swapi.co/api/starships/12/',
+                 'https://swapi.co/api/starships/22/' ],
+                    created: '2014-12-09T13:50:51.644000Z',
+                    edited: '2014-12-20T21:17:56.891000Z',
+                    url: 'https://swapi.co/api/people/1/',
+                    nextPage: [Function],
+                    previousPage: [Function],
+                    getName: [Function],
+                    getHeight: [Function],
+                    getMass: [Function],
+                    getHair_color: [Function],
+                    getSkin_color: [Function],
+                    getEye_color: [Function],
+                    getBirth_year: [Function],
+                    getGender: [Function],
+                    getHomeworld: [Function],
+                    getFilms: [Function],
+                    getSpecies: [Function],
+                    getVehicles: [Function],
+                    getStarships: [Function],
+                    getCreated: [Function],
+                    getEdited: [Function],
+                    getUrl: [Function] 
+          }
 
 #### Attributes:
 
@@ -674,3 +658,88 @@ For example, when a call to `getPerson(1)`is made, it might return this json:
 * edited `string` -- the ISO 8601 date format of the time that this resource was edited.
 
 Search Fields: `name`
+
+# Helper libraries
+There are a bunch of helper libraries available for consuming the Star Wars API in a native programming language.
+
+For Javascript there are two helper libraries -
+* SWAPI-Wrapper By Raymond Camden.
+* swapi-node by Lucas Holmquist.
+
+# swapi-node
+A *Node.js* helper library for `https://swapi.co/` - the Star Wars API
+
+## Installation
+
+    npm install swapi-node
+    
+## Usage
+
+There are some values that return a link. To make it easier to deal with these, there are corresponding getters for those properties.
+
+    const swapi = require("swapi-node");
+       swapi.getPerson(1).then(result => {
+         console.log(result);
+       });
+
+For example, when a call to `getPerson(1)`is made, it will return this json in the command line terminal :
+
+      {   name: 'Luke Skywalker',
+                    height: '172',
+                    mass: '77',
+                    hair_color: 'blond',
+                    skin_color: 'fair',
+                    eye_color: 'blue',
+                    birth_year: '19BBY',
+                    gender: 'male',
+                    homeworld: 'https://swapi.co/api/planets/1/',
+                    films: 
+                     [ 'https://swapi.co/api/films/2/',
+                       'https://swapi.co/api/films/6/',
+                       'https://swapi.co/api/films/3/',
+                       'https://swapi.co/api/films/1/',
+                       'https://swapi.co/api/films/7/' ],
+                    species: [ 'https://swapi.co/api/species/1/' ],
+                    vehicles: 
+                     [ 'https://swapi.co/api/vehicles/14/',
+                       'https://swapi.co/api/vehicles/30/' ],
+                    starships: 
+                     [ 'https://swapi.co/api/starships/12/',
+                       'https://swapi.co/api/starships/22/' ],
+                          created: '2014-12-09T13:50:51.644000Z',
+                          edited: '2014-12-20T21:17:56.891000Z',
+                          url: 'https://swapi.co/api/people/1/',
+                          nextPage: [Function],
+                          previousPage: [Function],
+                          getName: [Function],
+                          getHeight: [Function],
+                          getMass: [Function],
+                          getHair_color: [Function],
+                          getSkin_color: [Function],
+                          getEye_color: [Function],
+                          getBirth_year: [Function],
+                          getGender: [Function],
+                          getHomeworld: [Function],
+                          getFilms: [Function],
+                          getSpecies: [Function],
+                          getVehicles: [Function],
+                          getStarships: [Function],
+                          getCreated: [Function],
+                          getEdited: [Function],
+                          getUrl: [Function] 
+                }
+
+ It is the same response which we received when `https://swapi.co/api/people/1/` was called.
+
+As mentioned in the beginning, in this tutorial we are working on a functionality to search for a movie that features Luke Skywalker. From the above output we have received an array of the urls for the films that features our character.
+
+      films: 
+               [ 'https://swapi.co/api/films/2/',
+                 'https://swapi.co/api/films/6/',
+                 'https://swapi.co/api/films/3/',
+                 'https://swapi.co/api/films/1/',
+                 'https://swapi.co/api/films/7/' ]
+
+When we execute each of these urls individually, we fetch the names of the films. 
+
+` "title": "The Empire Strikes Back" `
