@@ -22,3 +22,10 @@ To make a request all we need is the base URL:
 `http://swapi.co/api/`
 
 From there we can choose which resource we want to tap into.
+
+## Getting Info From The Call
+
+If we make a simple call to the SWAPI we can use the JSON response to get information from that call. We can also specify a format (API/JSON/WOOKIEE) for the GET request. 
+Lets use the `Films` resource as an example since that's what we'll be working with.
+If we make a simple call to:
+`https://swapi.co/api/films/?format=api` , we will see something like this :
