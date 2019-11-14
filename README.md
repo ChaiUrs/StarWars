@@ -577,3 +577,100 @@ If we make a simple call to:
          }
        ]
     }
+    
+   
+A `People` resource is an individual person or character within the Star Wars universe.
+
+#### Endpoints
+
+* /people/ -- get all the people resources
+* /people/:id/ -- get a specific people resource
+* /people/schema/ -- view the JSON schema for this resource
+
+**Example request** :
+`https://swapi.co/api/people/1/` -or-
+`https://swapi.co/api/people/?search=luke`
+
+# swapi-node
+A *Node.js* helper library for `https://swapi.co/` - the Star Wars API
+
+## Installation
+
+    npm install swapi-node
+    
+## Usage
+
+There are some values that return a link. To make it easier to deal with these, there are corresponding getters for those properties.
+
+    const swapi = require("swapi-node");
+       swapi.getPerson(1).then(result => {
+         console.log(result);
+       });
+
+For example, when a call to `getPerson(1)`is made, it might return this json:
+    
+    {   name: 'Luke Skywalker',
+        height: '172',
+        mass: '77',
+        hair_color: 'blond',
+        skin_color: 'fair',
+        eye_color: 'blue',
+        birth_year: '19BBY',
+        gender: 'male',
+        homeworld: 'https://swapi.co/api/planets/1/',
+        films: 
+         [ 'https://swapi.co/api/films/2/',
+           'https://swapi.co/api/films/6/',
+           'https://swapi.co/api/films/3/',
+           'https://swapi.co/api/films/1/',
+           'https://swapi.co/api/films/7/' ],
+        species: [ 'https://swapi.co/api/species/1/' ],
+        vehicles: 
+         [ 'https://swapi.co/api/vehicles/14/',
+           'https://swapi.co/api/vehicles/30/' ],
+        starships: 
+         [ 'https://swapi.co/api/starships/12/',
+           'https://swapi.co/api/starships/22/' ],
+              created: '2014-12-09T13:50:51.644000Z',
+              edited: '2014-12-20T21:17:56.891000Z',
+              url: 'https://swapi.co/api/people/1/',
+              nextPage: [Function],
+              previousPage: [Function],
+              getName: [Function],
+              getHeight: [Function],
+              getMass: [Function],
+              getHair_color: [Function],
+              getSkin_color: [Function],
+              getEye_color: [Function],
+              getBirth_year: [Function],
+              getGender: [Function],
+              getHomeworld: [Function],
+              getFilms: [Function],
+              getSpecies: [Function],
+              getVehicles: [Function],
+              getStarships: [Function],
+              getCreated: [Function],
+              getEdited: [Function],
+              getUrl: [Function] 
+    }
+
+#### Attributes:
+
+* name `string` -- The name of this person.
+* birth_year `string` -- The birth year of the person, using the in-universe standard of BBY or ABY - Before the Battle of Yavin or After the Battle of Yavin. The Battle of Yavin is a battle that occurs at the end of Star Wars episode IV: A New Hope.
+* eye_color `string` -- The eye color of this person. Will be "unknown" if not known or "n/a" if the person does not have an eye.
+* gender `string` -- The gender of this person. Either "Male", "Female" or "unknown", "n/a" if the person does not have a gender.
+* hair_color `string` -- The hair color of this person. Will be "unknown" if not known or "n/a" if the person does not have hair.
+* height `string` -- The height of the person in centimeters.
+* mass `string` -- The mass of the person in kilograms.
+* skin_color `string` -- The skin color of this person.
+* homeworld `string` -- The URL of a planet resource, a planet that this person was born on or inhabits.
+* films `array` -- An array of film resource URLs that this person has been in.
+* species `array` -- An array of species resource URLs that this person belongs to.
+* starships `array` -- An array of starship resource URLs that this person has piloted.
+* vehicles `array` -- An array of vehicle resource URLs that this person has piloted.
+* url `string` -- the hypermedia URL of this resource.
+* created `string` -- the ISO 8601 date format of the time that this resource was created.
+* edited `string` -- the ISO 8601 date format of the time that this resource was edited.
+
+Search Fields: `name`
