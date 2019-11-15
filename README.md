@@ -759,9 +759,15 @@ When we execute each of these urls individually from the above array, the conten
 * edited
 * url
 
+So, from the above now we know that our character `Luke Skywalker` has appeared in the following films :
 
+* The Empire Strikes Back
+* Revenge of the Sith
+* Return of the Jedi
+* A New Hope
+* The Force Awakens
 
-
+### Note: 
 
 
 
