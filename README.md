@@ -590,7 +590,7 @@ Similarly, lets take a look into another example - A `People` resource, which is
 
 **Example request** :
 If we want to search for a particular character say `Luke Skywalker`, we can either search through `unique id` or `name`.
-If we make a simple call to: `https://swapi.co/api/people/1/` -or- `https://swapi.co/api/people/?search=luke` , we will see something like this :
+If we make a simple call to: `https://swapi.co/api/people/1/` -or- `https://swapi.co/api/people/?search=luke`, here is information about Luke we receive :
 
 
       {   name: 'Luke Skywalker',
@@ -731,6 +731,8 @@ For example, when a call to `getPerson(1)`is made, it will return this json in t
 
  It is the same response which we received when `https://swapi.co/api/people/1/` was called.
 
+## Summary
+
 As mentioned in the beginning, in this tutorial we are working on a functionality to search for a movie that features Luke Skywalker. From the above output we have received an array of the urls for the films that features our character.
 
       films: 
@@ -740,6 +742,26 @@ As mentioned in the beginning, in this tutorial we are working on a functionalit
                  'https://swapi.co/api/films/1/',
                  'https://swapi.co/api/films/7/' ]
 
-When we execute each of these urls individually, we fetch the names of the films. 
+When we execute each of these urls individually from the above array, the content displayed includes the following features of each movie. 
 
-` "title": "The Empire Strikes Back" `
+* title - ` "title": "The Empire Strikes Back" `
+* episode_id - ` "episode_id": 5 `
+* opening_crawl
+* director
+* producer
+* release_date
+* characters
+* planets
+* starships
+* vehicles
+* species
+* created
+* edited
+* url
+
+
+
+
+
+
+
